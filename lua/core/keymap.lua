@@ -16,6 +16,12 @@ vim.keymap.set("n", "<leader>P", '"0P', { desc = "Paste last yanked item above l
 vim.keymap.set("n", "<leader>i", "i<Space><ESC>i", { desc = "Enter insert mode with space in front", noremap = true })
 ------------------------------------------------------------------
 
+-- Readline stuff
+vim.api.nvim_set_keymap("i", "<C-a>", "<Home>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-e>", "<End>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-k>", "<C-o>D", { noremap = true, silent = true })
+
+
 -- Oil Bindings
 ------------------------------------------------------------------
 local oil = require("oil")
@@ -25,8 +31,6 @@ vim.keymap.set("n", "<leader>o", oil.open, { desc = "Toggle Oil" })
 
 -- LSP Bindings
 ------------------------------------------------------------------
-vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to definition" })
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to declaration" })
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
 vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
 vim.keymap.set("n", "<C-t>", vim.lsp.buf.type_definition)

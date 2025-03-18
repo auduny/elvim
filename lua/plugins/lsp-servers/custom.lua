@@ -2,7 +2,7 @@
 return {
   varnishls = {
     default_config = {
-      cmd = { "varnishls", "lsp", "--stdio" },
+      cmd = { "/Users/audunytterdal/src/m4r7inp/varnishls/target/debug/varnishls", "lsp", "--stdio" },
       filetypes = { "vcl", "vtc" },
       root_dir = require("lspconfig").util.root_pattern(".varnishls.toml", ".git"),
       settings = {},
