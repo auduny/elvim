@@ -60,6 +60,12 @@ return {
     opts = {}
   },
   {
+    "jamestthompson3/nvim-remote-containers",
+    opts = {},
+    config = function()
+    end
+  },
+  {
     "mistricky/codesnap.nvim",
     build = "make build_generator",
     keys = {

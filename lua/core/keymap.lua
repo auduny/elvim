@@ -1,6 +1,6 @@
 -- Unmapping
 ------------------------------------------------------------------
-vim.api.nvim_set_keymap('n', 'q:', '<Nop>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "q:", "<Nop>", { noremap = true, silent = true })
 ------------------------------------------------------------------
 
 -- Base Bindings
@@ -8,7 +8,7 @@ vim.api.nvim_set_keymap('n', 'q:', '<Nop>', { noremap = true, silent = true })
 -- Yank & Paste
 vim.opt.clipboard:prepend("unnamedplus")
 vim.keymap.set("n", "<leader>YY", "<CMD>%y+<CR>", { desc = "Yank whole file to clipboard" })
-vim.keymap.set("n", '<leader>y', '"+y', { desc = "Yank to clipboard", noremap = true })
+vim.keymap.set("n", "<leader>y", '"+y', { desc = "Yank to clipboard", noremap = true })
 vim.keymap.set("n", "<leader>p", '"0p', { desc = "Paste last yanked item under line", noremap = true })
 vim.keymap.set("n", "<leader>P", '"0P', { desc = "Paste last yanked item above line", noremap = true })
 
@@ -20,7 +20,6 @@ vim.keymap.set("n", "<leader>i", "i<Space><ESC>i", { desc = "Enter insert mode w
 vim.api.nvim_set_keymap("i", "<C-a>", "<Home>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-e>", "<End>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-k>", "<C-o>D", { noremap = true, silent = true })
-
 
 -- Oil Bindings
 ------------------------------------------------------------------
@@ -65,8 +64,12 @@ local harpoon = require("harpoon")
 
 harpoon:setup()
 
-vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set("n", "<leader>a", function()
+	harpoon:list():add()
+end)
+vim.keymap.set("n", "<C-e>", function()
+	harpoon.ui:toggle_quick_menu(harpoon:list())
+end)
 ------------------------------------------------------------------
 
 -- AI Stuff
@@ -74,6 +77,16 @@ vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:lis
 vim.g.copilot_no_tab_map = true
 vim.api.nvim_set_keymap("i", "<C-q>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
-vim.keymap.set({ "n", "x" }, "<leader>gl", "<CMD>'<,'>CodeCompanion<CR>", { desc = "Open Codecompanion", noremap = true })
+vim.keymap.set(
+	{ "n", "x" },
+	"<leader>gl",
+	"<CMD>'<,'>CodeCompanion<CR>",
+	{ desc = "Open Codecompanion", noremap = true }
+)
 vim.keymap.set("n", "<leader>gh", "<CMD>CodeCompanionChat<CR>", { desc = "Open Codecompanion" })
 ------------------------------------------------------------------
+
+-- Treesitter Bindings
+
+vim.keymap.set("n", "<leader>hi", ":Inspect<CR>", { desc = "Inspect Tree-sitter Highlight" })
+vim.keymap.set("n", "<leader>ht", ":InspectTree<CR>", { desc = "Open Tree-sitter Tree View" })
